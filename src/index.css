@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-royal: 'Cinzel', serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #1a040b;
+    color: #FDF8F0;
+  }
+
+  h1, h2, h3, .font-royal {
+    font-family: var(--font-royal);
+  }
+
+  .font-subheading {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom ornamental border & gold accent styles */
+.border-gold-subtle {
+  border-color: rgba(212, 175, 55, 0.22);
+}
+
+.border-gold-medium {
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0BD 0%, #D4AF37 50%, #AA820A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.gold-border-glow-lg {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
+}
+
+/* Luxury Royal Animation & Particles */
+@keyframes royalFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+@keyframes goldShimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.animate-royal-float {
+  animation: royalFloat 5s ease-in-out infinite;
+}
+
+.animate-gold-glow {
+  animation: pulseGoldGlow 2.5s ease-in-out infinite;
+}
+
+/* Shiny Gold Glimmer / Shimmer Effect on Buttons */
+.gold-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e5be49 0%, #d4af37 50%, #aa820a 100%);
+}
+
+.gold-shimmer-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: goldShimmerSweep 2.8s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #180308;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a1221;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
